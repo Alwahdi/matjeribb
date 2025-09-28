@@ -1,3 +1,185 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* متجر إب الشامل - نظام ألوان عربي فاخر */
+    --background: 45 20% 98%;
+    --foreground: 25 15% 15%;
+
+    --card: 45 25% 97%;
+    --card-foreground: 25 15% 15%;
+
+    --popover: 45 25% 97%;
+    --popover-foreground: 25 15% 15%;
+
+    /* اللون الذهبي الأساسي */
+    --primary: 45 85% 55%;
+    --primary-foreground: 45 20% 98%;
+    --primary-glow: 45 90% 65%;
+
+    /* اللون الأخضر الزيتوني */
+    --secondary: 75 25% 45%;
+    --secondary-foreground: 45 20% 98%;
+
+    --muted: 45 15% 92%;
+    --muted-foreground: 25 8% 45%;
+
+    --accent: 75 20% 85%;
+    --accent-foreground: 25 15% 15%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 20% 98%;
+
+    --border: 45 20% 88%;
+    --input: 45 20% 95%;
+    --ring: 45 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* تدرجات مخصصة */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    
+    /* ظلال أنيقة */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    --shadow-card: 0 8px 25px -8px hsl(var(--foreground) / 0.1);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.3);
+
+    /* انيميشن */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* متجر إب الشامل - الوضع الليلي */
+    --background: 25 15% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 25 20% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 25 20% 12%;
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 45 85% 65%;
+    --primary-foreground: 25 15% 8%;
+    --primary-glow: 45 95% 75%;
+
+    --secondary: 75 25% 55%;
+    --secondary-foreground: 25 15% 8%;
+
+    --muted: 25 15% 15%;
+    --muted-foreground: 45 10% 65%;
+
+    --accent: 75 20% 25%;
+    --accent-foreground: 45 20% 95%;
+
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 25 15% 8%;
+
+    --border: 25 15% 18%;
+    --input: 25 15% 15%;
+    --ring: 45 85% 65%;
+
+    /* تدرجات الوضع الليلي */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--secondary) / 0.15));
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)), hsl(var(--muted)));
+    
+    /* ظلال الوضع الليلي */
+    --shadow-elegant: 0 10px 30px -10px hsl(var(--primary) / 0.4);
+    --shadow-card: 0 8px 25px -8px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--primary-glow) / 0.2);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;}
+  /* Scrollbar styling */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animation keyframes */
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+    50% { box-shadow: 0 0 30px hsl(var(--primary) / 0.5); }
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-card {
+    background: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--card)) 100%);
+  }
+
+  .bg-gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary) / 0.8) 100%);
+  }
+
+  /* Shadow utilities */
+  .shadow-card {
+    box-shadow: 0 4px 20px -4px hsl(var(--primary) / 0.1);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.2);
+  }
+
+  /* Enhanced glass effect */
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  [data-theme="dark"] .glass-effect {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
